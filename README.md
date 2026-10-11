@@ -83,8 +83,8 @@ To achieve maximum real-world impact and domain breadth, our platform operationa
 ### Step-by-Step Setup:
 ```bash
 # 1. Clone repository
-git clone <your-repo-url>
-cd <repo-folder>
+git clone https://github.com/23BCE0066/VIT-Mehul-Goyal-hackathon.git
+cd VIT-Mehul-Goyal-hackathon
 
 # 2. Install dependencies
 pip install -r requirements.txt
