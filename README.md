@@ -139,26 +139,30 @@ print('ALL INTEGRATION CHECKS PASSED!')
 
 ## 6. Platform Interface & Visual Walkthrough
 
-### 1. Dashboard: Real-Time Financial Risk Intelligence Overview
+### 1. IDE Code Environment & Terminal Startup Execution
+![IDE & Terminal Execution](docs/screenshots/00_ide_terminal_execution.png)
+*Live terminal execution of `streamlit run src/app.py` on macOS, active data streams (`sample_tweets.json`), and verified data ingestion pipelines.*
+
+### 2. Dashboard: Real-Time Financial Risk Intelligence Overview
 ![Dashboard Overview](docs/screenshots/01_dashboard_overview.png)
 *Real-time signal ingestion counter, continuous market sentiment (-0.15), systemic risk triggers (7/12), sentiment distribution, and institutional event taxonomy breakdown.*
 
-### 2. Core AI/NLP Risk Engine Processing & Scatter Matrix
+### 3. Core AI/NLP Risk Engine Processing & Scatter Matrix
 ![NLP Risk Engine](docs/screenshots/02_nlp_risk_engine.png)
 *Institutional event classification breakdown and Sentiment vs. Impact scatter matrix identifying systemic risk outliers (Impact ≥ 7).*
 
-### 3. Module A: Tactical Index Rebalancer (S&P 100 Basket)
+### 4. Module A: Tactical Index Rebalancer (S&P 100 Basket)
 ![Index Rebalancer](docs/screenshots/03_index_rebalancer.png)
 *Dynamic tilt tuning (λ), institutional box-constrained weights [2%, 22%], and simulated cumulative alpha performance beating the S&P 100 benchmark.*
 
-### 4. Module A: Constituent Rebalancing Ledger
+### 5. Module A: Constituent Rebalancing Ledger
 ![Rebalancing Ledger](docs/screenshots/04_rebalancing_ledger.png)
 *Granular ledger tracking net sentiment, benchmark weight vs. rebalanced allocation, and active tilt delta across all 12 constituents.*
 
-### 5. Module B: Wholesale Portfolio Stress Testing ($505M Book)
+### 6. Module B: Wholesale Portfolio Stress Testing ($505M Book)
 ![Wholesale Stress Testing](docs/screenshots/05_stress_testing.png)
 *Basel Expected Loss surge (+161%), portfolio valuation drawdown, loss by asset class, and facility-level haircut ranking.*
 
-### 6. Live Scenario Sandbox: Ad-Hoc Breaking News Analysis & Dual Propagation
+### 7. Live Scenario Sandbox: Ad-Hoc Breaking News Analysis & Dual Propagation
 ![Scenario Sandbox](docs/screenshots/06_scenario_sandbox.png)
 *Real-time unstructured event extraction (Sentiment -0.99, Geopolitical, Impact 8/10), Systemic Alert TRIGGERED, and automated routing to Module A and Module B.*
