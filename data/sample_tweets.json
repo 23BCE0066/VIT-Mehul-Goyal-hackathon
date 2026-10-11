@@ -1,0 +1,62 @@
+[
+  {
+    "id": "TWEET-101",
+    "timestamp": "2026-10-10T14:45:00Z",
+    "source": "StockTwits / X Desk",
+    "author": "@MacroAlphaQuant",
+    "content": "Yield curve inverted further today. 10Y yields breaking 4.85%. Regional bank credit spreads widening +45bps. Massive liquidation pressure across leveraged loans! $JPM $BAC #recession #credit",
+    "cashtags": ["$JPM", "$BAC"],
+    "ground_truth_category": "Macroeconomic",
+    "expected_sentiment": -0.82
+  },
+  {
+    "id": "TWEET-102",
+    "timestamp": "2026-10-10T16:50:00Z",
+    "source": "StockTwits / X Desk",
+    "author": "@BrentCrudeTrader",
+    "content": "Tankers halted in Persian Gulf! Brent crude ripping past $95. Oil majors $XOM $CVX printing cash while airlines $DAL are completely uninvestable right now. Energy shock alert!",
+    "cashtags": ["$XOM", "$CVX", "$DAL"],
+    "ground_truth_category": "Geopolitical",
+    "expected_sentiment": -0.75
+  },
+  {
+    "id": "TWEET-103",
+    "timestamp": "2026-10-11T08:25:00Z",
+    "source": "StockTwits / X Desk",
+    "author": "@TechBullRider",
+    "content": "Blackwell Ultra production yields ahead of schedule! $NVDA forward PE looks cheap when enterprise order books are stacked $25B deep. Upgrading target to $185! $MSFT $GOOGL",
+    "cashtags": ["$NVDA", "$MSFT", "$GOOGL"],
+    "ground_truth_category": "Product Launch",
+    "expected_sentiment": 0.95
+  },
+  {
+    "id": "TWEET-104",
+    "timestamp": "2026-10-11T10:05:00Z",
+    "source": "StockTwits / X Desk",
+    "author": "@DistressedDebtDesk",
+    "content": "BREAKING: CDS on commercial property debt spiking to multi-year highs. $2.4B office facility cross-default triggered. Expect tier-1 banks to post heavy loan-loss allowances this quarter.",
+    "cashtags": ["$JPM", "$BAC"],
+    "ground_truth_category": "Credit Event",
+    "expected_sentiment": -0.92
+  },
+  {
+    "id": "TWEET-105",
+    "timestamp": "2026-10-11T11:40:00Z",
+    "source": "StockTwits / X Desk",
+    "author": "@AppleInsiderPro",
+    "content": "$AAPL robotics M&A is an absolute masterstroke. Hardware ecosystem synergy is unmatched, immediate accretive earnings expected within 18 months. Extremely bullish!",
+    "cashtags": ["$AAPL"],
+    "ground_truth_category": "Merger/Acquisition",
+    "expected_sentiment": 0.84
+  },
+  {
+    "id": "TWEET-106",
+    "timestamp": "2026-10-11T12:20:00Z",
+    "source": "StockTwits / X Desk",
+    "author": "@BioPharmCatalyst",
+    "content": "Fast-Track granted! $LLY clinical data completely crushed standard of care. Diabetes and obesity franchise dominance secured for the next decade.",
+    "cashtags": ["$LLY"],
+    "ground_truth_category": "Product Launch",
+    "expected_sentiment": 0.89
+  }
+]

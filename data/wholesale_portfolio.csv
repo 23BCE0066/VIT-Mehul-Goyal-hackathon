@@ -1,0 +1,15 @@
+asset_id,facility_name,asset_type,borrower_sector,rating,notional_usd,duration_years,baseline_pd,baseline_lgd,interest_rate_pct,spread_bps
+WB-LN-101,AeroDynamics Corp Term Loan B,Commercial Loan,Industrials & Aerospace,BBB,45000000,3.5,0.012,0.40,6.25,220
+WB-LN-102,Apex Commercial Real Estate Trust,Commercial Loan,Commercial Real Estate,BB-,65000000,4.2,0.038,0.55,7.85,380
+WB-LN-103,Global Logistics Fleet Facility,Commercial Loan,Transportation,BBB+,35000000,2.8,0.009,0.35,5.95,190
+WB-LN-104,OmniHealth Hospital Syndicate,Commercial Loan,Healthcare,A-,55000000,5.0,0.006,0.30,5.45,150
+WB-LN-105,Permian Basin Energy Reserves Loan,Commercial Loan,Energy & Utilities,BB+,50000000,3.0,0.024,0.45,7.10,310
+WB-BD-201,Nordic Telecom Senior Unsecured,Corporate Bond,Telecommunications,BBB,40000000,6.5,0.015,0.42,5.80,180
+WB-BD-202,Pacific Retail Infrastructure Bond,Corporate Bond,Consumer Discretionary,B+,30000000,4.8,0.052,0.60,8.40,440
+WB-BD-203,Sovereign Quasi-State Utility Note,Corporate Bond,Utilities & Power,AA-,50000000,7.2,0.003,0.25,4.75,95
+WB-BD-204,NextGen Semiconductor Senior Note,Corporate Bond,Technology,A,45000000,5.5,0.005,0.35,5.10,130
+WB-BD-205,EuroTrans Freight Holdings 2030,Corporate Bond,Transportation,BBB-,35000000,4.0,0.019,0.45,6.50,250
+WB-DR-301,5Y SOFR Payer Interest Rate Swap,Interest Rate Swap,Financial Services,A+,30000000,5.0,0.004,0.20,4.85,60
+WB-DR-302,EUR/USD Cross-Currency Basis Swap,Cross Currency Swap,Banking & Sovereigns,AA,25000000,3.0,0.002,0.20,4.20,45
+WB-DR-303,High-Yield CDX Credit Default Swap,Credit Derivative,High Yield Corporates,BB,25000000,4.5,0.035,0.50,7.50,350
+WB-DR-304,WTI Crude Oil Collar Hedge,Commodity Derivative,Energy,BBB,20000000,2.0,0.014,0.30,6.00,200

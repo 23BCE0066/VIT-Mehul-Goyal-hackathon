@@ -1,0 +1,62 @@
+[
+  {
+    "id": "NEWS-001",
+    "timestamp": "2026-10-10T14:30:00Z",
+    "source": "Financial Times / Global Macro",
+    "headline": "Federal Reserve signals aggressive 50bps rate hike amid persistent inflationary pressures",
+    "content": "The central bank warned of ongoing liquidity tightening as sticky core inflation forces monetary authorities to hike benchmark rates higher for longer. Credit markets braced for yield curve steepening and rising debt refinancing costs across commercial lenders.",
+    "entities": ["Fed", "Macro", "Treasury", "JPM", "BAC"],
+    "ground_truth_category": "Macroeconomic",
+    "expected_sentiment": -0.72
+  },
+  {
+    "id": "NEWS-002",
+    "timestamp": "2026-10-10T16:15:00Z",
+    "source": "Reuters Energy & Defense",
+    "headline": "Strait of Hormuz tensions spike after naval standoff; global oil prices jump 8% to $94/bbl",
+    "content": "Escalating geopolitical conflict in critical maritime choke points has triggered insurance cancellations for crude carriers. Energy majors surged while consumer discretionary and transportation sectors suffered sharp valuation downgrades on fuel shock concerns.",
+    "entities": ["XOM", "CVX", "DAL", "UAL"],
+    "ground_truth_category": "Geopolitical",
+    "expected_sentiment": -0.85
+  },
+  {
+    "id": "NEWS-003",
+    "timestamp": "2026-10-11T08:00:00Z",
+    "source": "Bloomberg Tech & Semis",
+    "headline": "Nvidia announces next-generation Blackwell Ultra architecture with record $25B cloud hyperscaler backlog",
+    "content": "Nvidia unveiled its breakthrough generative compute infrastructure alongside record gross margins of 78%. Hyperscalers Microsoft, Amazon, and Google pledged expanded multi-year capital deployment, sparking massive risk-on rally across semiconductor equities.",
+    "entities": ["NVDA", "MSFT", "AMZN", "GOOGL"],
+    "ground_truth_category": "Product Launch",
+    "expected_sentiment": 0.91
+  },
+  {
+    "id": "NEWS-004",
+    "timestamp": "2026-10-11T09:45:00Z",
+    "source": "Wall Street Journal Banking Desk",
+    "headline": "Major Tier-2 Commercial Real Estate Syndication Defaults on $2.4B Debt Facility",
+    "content": "A high-profile syndicated office debt vehicle entered default proceedings after failing debt-service coverage ratio covenants. Regional and wholesale lenders face mandatory provision surges as rating agencies downgrade subordinated mezzanine tranches to CCC.",
+    "entities": ["JPM", "BAC", "CRE", "Debt"],
+    "ground_truth_category": "Credit Event",
+    "expected_sentiment": -0.88
+  },
+  {
+    "id": "NEWS-005",
+    "timestamp": "2026-10-11T11:20:00Z",
+    "source": "CNBC M&A Wire",
+    "headline": "Apple finalizes $18B strategic acquisition of autonomous AI robotics pioneer to lead spatial robotics",
+    "content": "Apple confirmed a definitive cash-and-stock buyout agreement, bolstering its proprietary edge silicon and robotics ecosystem. Regulatory clearance was accelerated under pro-innovation industrial guidelines, expanding addressable market projections.",
+    "entities": ["AAPL", "Tech", "Robotics"],
+    "ground_truth_category": "Merger/Acquisition",
+    "expected_sentiment": 0.78
+  },
+  {
+    "id": "NEWS-006",
+    "timestamp": "2026-10-11T12:05:00Z",
+    "source": "MarketWatch Healthcare",
+    "headline": "Eli Lilly receives FDA Fast-Track approval for breakthrough oral metabolic formulation",
+    "content": "Clinical Phase 3 trials demonstrated superior efficacy with negligible adverse side effects. Analysts project peak annual sales exceeding $14B, solidifying dominant competitive moat over European peers.",
+    "entities": ["LLY", "Healthcare", "FDA"],
+    "ground_truth_category": "Product Launch",
+    "expected_sentiment": 0.86
+  }
+]
