@@ -72,63 +72,78 @@ html, body, [data-testid="stAppViewContainer"], .stApp {
     color: var(--text-primary) !important;
 }
 
+/* Hide Streamlit Header, Deploy Button, Menu, and Decoration */
 [data-testid="stHeader"] {
-    background: #FFFFFF !important;
-    border-bottom: 1px solid var(--border) !important;
-    height: 56px !important;
+    display: none !important;
+}
+
+.stDeployButton,
+[data-testid="stDeployButton"],
+#MainMenu,
+footer,
+[data-testid="stToolbar"],
+[data-testid="stDecoration"] {
+    display: none !important;
+    visibility: hidden !important;
 }
 
 [data-testid="stMainBlockContainer"] {
-    padding-top: 1.5rem !important;
+    padding-top: 1.75rem !important;
     padding-bottom: 3rem !important;
     max-width: 1440px;
 }
 
-/* Top App Header Banner */
+/* Top App Header Banner Card */
 .top-brand-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 0 20px 0;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 20px;
+    padding: 16px 22px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
 }
 .brand-left {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 .brand-badge {
-    background: #1E293B;
+    background: #0F172A;
     color: #FFFFFF;
     font-weight: 800;
     font-size: 13px;
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 8px;
     letter-spacing: 0.5px;
+    flex-shrink: 0;
 }
 .brand-title {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--text-primary);
-    line-height: 1.2;
+    line-height: 1.3;
 }
 .brand-subtitle {
-    font-size: 12px;
-    color: var(--text-muted);
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
 }
 .candidate-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FFFFFF;
+    background: #F8FAFC;
     border: 1px solid var(--border);
-    padding: 6px 14px;
+    padding: 7px 16px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
     color: var(--text-secondary);
     box-shadow: var(--shadow);
+    flex-shrink: 0;
 }
 .candidate-dot {
     width: 8px;
@@ -407,11 +422,6 @@ button[data-testid="stSidebarCollapseButton"],
 /* Push the main container so it never overlaps the pinned 275px sidebar */
 [data-testid="stAppViewContainer"] {
     margin-left: 275px !important;
-    width: calc(100% - 275px) !important;
-}
-
-[data-testid="stHeader"] {
-    left: 275px !important;
     width: calc(100% - 275px) !important;
 }
 
