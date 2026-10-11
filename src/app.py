@@ -11,6 +11,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 
+import sys
+from pathlib import Path
+
+# Ensure root directory is always on python sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 # Import backend modules
 from src.engine.ingestion import IngestionPipeline
 from src.engine.nlp_processor import NLPRiskEngine
