@@ -101,20 +101,13 @@ uvicorn src.engine.api:app --reload --port 8000
 - Interactive Swagger docs available at: `http://localhost:8000/docs`
 - Query structured signals via: `http://localhost:8000/signals`
 
-### Verify Pipeline Integrity:
+### Verify Pipeline Integrity & Run Test Suite:
 ```bash
-python3 -c "
-from src.engine.ingestion import IngestionPipeline
-from src.engine.nlp_processor import NLPRiskEngine
-from src.module_a.index_rebalancer import TacticalIndexRebalancer
-from src.module_b.stress_engine import StrategicStressTester
+# Run unit test suite
+python3 -m unittest discover -s tests
 
-pipe = IngestionPipeline()
-signals = NLPRiskEngine().process_batch(pipe.load_unified_stream())
-w = TacticalIndexRebalancer().compute_rebalanced_weights(TacticalIndexRebalancer().aggregate_signals_by_ticker(signals))
-stress = StrategicStressTester().run_stress_test('Credit Event', 8)
-print('ALL INTEGRATION CHECKS PASSED!')
-"
+# Or run direct verification
+python3 tests/test_platform.py
 ```
 
 ---
