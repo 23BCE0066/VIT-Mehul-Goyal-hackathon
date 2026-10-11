@@ -1067,17 +1067,31 @@ elif app_mode == "🔬  Scenario Sandbox":
             height=90,
             label_visibility="collapsed"
         )
-        analyze_clicked = st.button("🚀 Run Live AI Risk Analysis", type="primary")
+        analyze_clicked = st.button("🚀 Run Live AI Risk Analysis", type="primary", use_container_width=True)
 
-    if analyze_clicked or True:
-        record = {
-            "id": f"LIVE-{int(datetime.utcnow().timestamp())}",
+    if "sandbox_res" not in st.session_state:
+        # Default initialization with current headline
+        init_record = {
+            "id": "LIVE-DEFAULT",
             "source_type": "adhoc_input",
             "channel": "Live Jury Tester",
             "raw_text": custom_input
         }
-        res = nlp.process_record(record)
+        st.session_state.sandbox_res = nlp.process_record(init_record)
 
+    if analyze_clicked:
+        with st.spinner("Analyzing text through AI/NLP Risk Engine..."):
+            record = {
+                "id": f"LIVE-{int(datetime.utcnow().timestamp())}",
+                "source_type": "adhoc_input",
+                "channel": "Live Jury Tester",
+                "raw_text": custom_input
+            }
+            st.session_state.sandbox_res = nlp.process_record(record)
+        st.toast("Analysis Complete! Signal propagated to Downstream Modules.", icon="✅")
+
+    res = st.session_state.sandbox_res
+    if res:
         r1, r2, r3, r4 = st.columns(4)
         with r1:
             d = "up" if res["sentiment_score"] > 0 else "down"

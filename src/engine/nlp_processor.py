@@ -21,7 +21,9 @@ class NLPRiskEngine:
         self.event_taxonomies = {
             "Geopolitical": [
                 "war", "military", "sanction", "missile", "strait", "hormuz", "tensions", 
-                "blockade", "geopolitical", "treaty", "conflict", "retaliation", "navy"
+                "blockade", "geopolitical", "treaty", "conflict", "retaliation", "navy",
+                "drone", "middle east", "middle eastern", "maritime", "terminal", "disruption",
+                "attack", "strike", "standoff", "choke points", "embargo", "naval"
             ],
             "Macroeconomic": [
                 "inflation", "federal reserve", "fed", "rate hike", "basis points", "bps", 
@@ -42,7 +44,7 @@ class NLPRiskEngine:
         }
 
         self.financial_positives = {
-            "surge": 0.8, "record": 0.75, "breakthrough": 0.9, "outperform": 0.85, 
+            "record": 0.75, "breakthrough": 0.9, "outperform": 0.85, 
             "approval": 0.8, "upgrade": 0.75, "bullish": 0.7, "backlog": 0.6,
             "accelerated": 0.5, "superior": 0.7, "rally": 0.75, "beat": 0.65,
             "accretive": 0.7, "expansion": 0.6, "growth": 0.55, "synergy": 0.65
@@ -53,7 +55,10 @@ class NLPRiskEngine:
             "shock": -0.8, "recession": -0.85, "downgrade": -0.8, "liquidation": -0.9,
             "covenant": -0.65, "plunge": -0.8, "drop": -0.6, "halted": -0.7,
             "distressed": -0.85, "inflationary": -0.6, "warning": -0.6, "loss": -0.7,
-            "uninvestable": -0.8, "pressure": -0.55, "collapse": -0.95
+            "uninvestable": -0.8, "pressure": -0.55, "collapse": -0.95,
+            "disruption": -0.85, "drone": -0.8, "attack": -0.9, "fears": -0.75, "fear": -0.75,
+            "widen": -0.7, "widens": -0.7, "widening": -0.7, "crisis": -0.85, "standoff": -0.75,
+            "spreads": -0.65, "cancellations": -0.7
         }
 
         # Known ticker entity mappings for targeted signal assignment
@@ -111,13 +116,15 @@ class NLPRiskEngine:
     def compute_sentiment(self, text: str) -> float:
         """
         Calculates sentiment polarity score bounded strictly within [-1.0, 1.0].
-        Incorporates financial negation context and intensity.
+        Incorporates financial negation context, energy/commodity shock awareness, and intensity.
         """
         text_lower = text.lower()
         tokens = re.findall(r"\b\w+\b", text_lower)
         
         pos_score = 0.0
         neg_score = 0.0
+
+        inflation_cost_words = {"crude", "oil", "inflation", "cost", "costs", "yield", "debt", "spread", "spreads", "cpi", "rate"}
 
         for i, token in enumerate(tokens):
             weight_mult = 1.0
@@ -126,6 +133,16 @@ class NLPRiskEngine:
                 weight_mult = -1.0
             if i > 1 and tokens[i - 2] in ["no", "not", "never", "without", "failed"]:
                 weight_mult = -1.0
+
+            # Special contextual handling for "surge"
+            if token in ["surge", "surged", "surges"]:
+                # Check if surrounding words refer to cost, crude, inflation, or debt
+                surrounding = set(tokens[max(0, i - 3): min(len(tokens), i + 4)])
+                if surrounding & inflation_cost_words:
+                    neg_score += 0.75 * weight_mult
+                else:
+                    pos_score += 0.8 * weight_mult
+                continue
 
             if token in self.financial_positives:
                 score = self.financial_positives[token] * weight_mult
@@ -149,9 +166,9 @@ class NLPRiskEngine:
         """
         Determines severity rating from 1 (negligible) to 10 (systemic disruption).
         Factors:
-        - Sentiment polarity extremity (|sentiment|)
         - Systemic nature of category (e.g. Geopolitical/Credit > Single Product Launch)
-        - Magnitude keywords ($ billions, % surges, systemic defaults)
+        - Sentiment polarity extremity (|sentiment|)
+        - Magnitude keywords ($ billions, % surges, basis points, drone/disruptions)
         - Number of market entities impacted
         """
         base_severity = {
@@ -163,19 +180,19 @@ class NLPRiskEngine:
         }.get(category, 5.0)
 
         # Polarity multiplier
-        polarity_boost = abs(sentiment) * 2.2
+        polarity_boost = abs(sentiment) * 2.5
 
         # Magnitude signals
         text_lower = text.lower()
         magnitude_boost = 0.0
         if re.search(r"(\$\d+(\.\d+)?b|billion|trillion)", text_lower):
             magnitude_boost += 1.5
-        if re.search(r"(\b50bps\b|\b100bps\b|2%|8%|sharp|massive|severe)", text_lower):
-            magnitude_boost += 1.0
+        if re.search(r"(\b\d+bps\b|\b50bps\b|\b100bps\b|2%|8%|sharp|massive|severe|drone|disruption|default|crisis|standoff)", text_lower):
+            magnitude_boost += 1.3
         if len(entities) >= 3:
             magnitude_boost += 0.8
 
-        final_raw = (base_severity * 0.45) + polarity_boost + magnitude_boost
+        final_raw = (base_severity * 0.5) + polarity_boost + magnitude_boost
         impact_score = int(round(min(max(final_raw, 1.0), 10.0)))
         return impact_score
 
