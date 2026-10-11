@@ -134,3 +134,27 @@ print('ALL INTEGRATION CHECKS PASSED!')
 - **Early-Warning Credit Intelligence:** Transforms credit risk monitoring from slow, backward-looking quarterly reviews into continuous real-time risk surveillance.
 - **Next-Generation Index Products:** Demonstrates the algorithmic foundation for smart-beta sentiment indices that dynamically reallocate around market regimes.
 - **Regulatory Stress Readiness:** Provides banking risk officers with an instant macro shock transmission engine aligned with Basel and CCAR supervisory stress guidelines.
+
+---
+
+## 6. Platform Interface & Visual Walkthrough
+
+### 1. Dashboard: Real-Time Financial Risk Intelligence Overview
+![Dashboard Overview](docs/screenshots/01_dashboard_overview.png)
+*Real-time signal ingestion counter, continuous market sentiment (-0.15), systemic risk triggers (7/12), sentiment distribution, and institutional event taxonomy breakdown.*
+
+### 2. Core AI/NLP Risk Engine Processing & Scatter Matrix
+![NLP Risk Engine](docs/screenshots/02_nlp_risk_engine.png)
+*Institutional event classification breakdown and Sentiment vs. Impact scatter matrix identifying systemic risk outliers (Impact ≥ 7).*
+
+### 3. Module A: Tactical Index Rebalancer (S&P 100 Basket)
+![Index Rebalancer](docs/screenshots/03_index_rebalancer.png)
+*Dynamic tilt tuning (λ), institutional box-constrained weights [2%, 22%], and simulated cumulative alpha performance beating the S&P 100 benchmark.*
+
+### 4. Module A: Constituent Rebalancing Ledger
+![Rebalancing Ledger](docs/screenshots/04_rebalancing_ledger.png)
+*Granular ledger tracking net sentiment, benchmark weight vs. rebalanced allocation, and active tilt delta across all 12 constituents.*
+
+### 5. Module B: Wholesale Portfolio Stress Testing ($505M Book)
+![Wholesale Stress Testing](docs/screenshots/05_stress_testing.png)
+*Basel Expected Loss surge (+161%), portfolio valuation drawdown, loss by asset class, and facility-level haircut ranking.*
