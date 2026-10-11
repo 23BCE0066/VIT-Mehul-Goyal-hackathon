@@ -158,3 +158,7 @@ print('ALL INTEGRATION CHECKS PASSED!')
 ### 5. Module B: Wholesale Portfolio Stress Testing ($505M Book)
 ![Wholesale Stress Testing](docs/screenshots/05_stress_testing.png)
 *Basel Expected Loss surge (+161%), portfolio valuation drawdown, loss by asset class, and facility-level haircut ranking.*
+
+### 6. Live Scenario Sandbox: Ad-Hoc Breaking News Analysis & Dual Propagation
+![Scenario Sandbox](docs/screenshots/06_scenario_sandbox.png)
+*Real-time unstructured event extraction (Sentiment -0.99, Geopolitical, Impact 8/10), Systemic Alert TRIGGERED, and automated routing to Module A and Module B.*
