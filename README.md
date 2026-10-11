@@ -3,8 +3,9 @@
 **Candidate Name:** Mehul Goyal  
 **College Email ID:** mehul.goyal2023@vitstudent.ac.in  
 **College / Campus:** Vellore Institute of Technology (VIT)  
-**Demo Video Link:** [Loom Video Walkthrough](https://www.loom.com/share/0cad06e2b06347ad92a938719a4b436e)  
-**Slide Deck Link (Google Drive):** [Presentation Deck (PDF)](https://drive.google.com/file/d/1QkEs4TnBhJTbXwXjTUFnB0-E6nxteg09/view?usp=sharing)  
+**Demo Video Link:** [Loom Video Walkthrough (Unlisted/Public)](https://www.loom.com/share/0cad06e2b06347ad92a938719a4b436e)  
+**Slide Deck Link (if hosted externally):** [Presentation Deck (Google Drive - Anyone with Link Can View)](https://drive.google.com/file/d/1QkEs4TnBhJTbXwXjTUFnB0-E6nxteg09/view?usp=sharing)  
+**In-Repo Deck Path:** [docs/presentation.pdf](docs/presentation.pdf)  
 
 ---
 
