@@ -377,11 +377,89 @@ html, body, [data-testid="stAppViewContainer"], .stApp {
     line-height: 1.5;
 }
 
-/* Sidebar Custom Styling */
+/* ═══════ GUARANTEED PINNED PERMANENT SIDEBAR ═══════ */
 [data-testid="stSidebar"] {
+    display: block !important;
+    transform: none !important;
+    min-width: 275px !important;
+    max-width: 275px !important;
+    width: 275px !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
     background: #FFFFFF !important;
     border-right: 1px solid var(--border) !important;
+    box-shadow: 1px 0 4px rgba(0,0,0,0.03) !important;
+    visibility: visible !important;
 }
+
+/* Hide collapse and expand toggle chevrons */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stSidebarCollapsedControl"],
+button[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Push the main container so it never overlaps the pinned 275px sidebar */
+[data-testid="stAppViewContainer"] {
+    margin-left: 275px !important;
+    width: calc(100% - 275px) !important;
+}
+
+[data-testid="stHeader"] {
+    left: 275px !important;
+    width: calc(100% - 275px) !important;
+}
+
+/* Sidebar Radio Pills - Clean SaaS Design */
+[data-testid="stSidebar"] .stRadio > div {
+    gap: 4px !important;
+}
+
+[data-testid="stSidebar"] .stRadio > div > label {
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+    font-size: 13.5px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    border: 1px solid transparent !important;
+}
+
+/* Hide radio circle bullet */
+[data-testid="stSidebar"] .stRadio > div > label > div:first-child {
+    display: none !important;
+}
+
+/* Hover on item */
+[data-testid="stSidebar"] .stRadio > div > label:hover {
+    background: #F8FAFC !important;
+    color: #0F172A !important;
+    border-color: #E2E8F0 !important;
+}
+
+/* Active item */
+[data-testid="stSidebar"] .stRadio > div > label:has(input:checked),
+[data-testid="stSidebar"] .stRadio > div > label[data-checked="true"] {
+    background: #EFF6FF !important;
+    border-color: #DBEAFE !important;
+}
+
+[data-testid="stSidebar"] .stRadio > div > label:has(input:checked) p,
+[data-testid="stSidebar"] .stRadio > div > label[data-checked="true"] p {
+    color: #2563EB !important;
+    font-weight: 700 !important;
+}
+
+/* Sidebar markdown text */
 [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
 [data-testid="stSidebar"] span {
     font-family: 'Inter', sans-serif !important;
@@ -548,7 +626,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# DUAL NAVIGATION: SIDEBAR + TOP SEGMENTED BAR
+# SIDEBAR NAVIGATION
 # ─────────────────────────────────────────────────────────────────────────────
 nav_options = [
     "📊  Dashboard",
@@ -558,66 +636,46 @@ nav_options = [
     "🔬  Scenario Sandbox"
 ]
 
-# Sync via session state
-if "active_nav" not in st.session_state:
-    st.session_state.active_nav = nav_options[0]
-
-# Sidebar
 st.sidebar.markdown("""
 <div style="padding: 10px 0 16px 0;">
     <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="width: 36px; height: 36px; background: #2563EB; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 15px;">S&P</div>
+        <div style="width: 38px; height: 38px; background: #2563EB; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 15px;">S&P</div>
         <div>
-            <div style="font-size: 15px; font-weight: 700; color: #0F172A;">Risk Engine</div>
+            <div style="font-size: 15px; font-weight: 700; color: #0F172A; line-height: 1.2;">Risk Engine</div>
             <div style="font-size: 11px; color: #94A3B8;">Code to Connect 2026</div>
         </div>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-st.sidebar.markdown("**MAIN MENU**")
-sidebar_nav = st.sidebar.radio(
+st.sidebar.markdown('<div style="font-size: 11px; font-weight: 700; color: #94A3B8; letter-spacing: 0.5px; margin-bottom: 6px;">MAIN MENU</div>', unsafe_allow_html=True)
+app_mode = st.sidebar.radio(
     "Navigation",
     nav_options,
-    index=nav_options.index(st.session_state.active_nav),
     label_visibility="collapsed"
 )
-if sidebar_nav != st.session_state.active_nav:
-    st.session_state.active_nav = sidebar_nav
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**SYSTEM ARCHITECTURE**")
+st.sidebar.markdown('<div style="font-size: 11px; font-weight: 700; color: #94A3B8; letter-spacing: 0.5px; margin-bottom: 6px;">SYSTEM PIPELINE</div>', unsafe_allow_html=True)
 st.sidebar.markdown("""
-- **Data Ingestion:** GDELT/News & Social Tweets
-- **Core NLP:** FinBERT Lexicon + Taxonomy + Impact
-- **Module A:** S&P 100 12-Stock Tactical Rebalancer
-- **Module B:** $505M Wholesale Basel Stress Tester
-- **FastAPI Endpoint:** `/signals` (Port 8000)
-""")
+<div style="font-size: 12.5px; color: #475569; line-height: 1.8;">
+    <div>⚡ <strong>Data Ingestion:</strong> GDELT & Tweets</div>
+    <div>🧠 <strong>Core NLP:</strong> FinBERT & Taxonomy</div>
+    <div>📈 <strong>Module A:</strong> 12-Stock S&P 100 Tilt</div>
+    <div>🛡 <strong>Module B:</strong> $505M Wholesale ECL</div>
+    <div>📡 <strong>FastAPI Service:</strong> Port 8000</div>
+</div>
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
 <div style="padding: 4px 0;">
-    <div style="font-size: 12px; color: #64748B;">Candidate Submission</div>
-    <div style="font-size: 13px; font-weight: 700; color: #0F172A;">Mehul Goyal</div>
-    <div style="font-size: 11px; color: #94A3B8;">Vellore Institute of Technology (VIT)</div>
-    <div style="font-size: 11px; color: #2563EB;">mehul.goyal2023@vitstudent.ac.in</div>
+    <div style="font-size: 11px; font-weight: 700; color: #94A3B8; letter-spacing: 0.5px; margin-bottom: 4px;">CANDIDATE SUBMISSION</div>
+    <div style="font-size: 13.5px; font-weight: 700; color: #0F172A;">Mehul Goyal</div>
+    <div style="font-size: 12px; color: #64748B;">Vellore Institute of Technology (VIT)</div>
+    <div style="font-size: 11px; color: #2563EB; word-break: break-all;">mehul.goyal2023@vitstudent.ac.in</div>
 </div>
 """, unsafe_allow_html=True)
-
-# Top horizontal navigation pills for 1-click access
-top_nav = st.radio(
-    "Quick Navigation",
-    nav_options,
-    index=nav_options.index(st.session_state.active_nav),
-    horizontal=True,
-    label_visibility="collapsed"
-)
-if top_nav != st.session_state.active_nav:
-    st.session_state.active_nav = top_nav
-    st.rerun()
-
-app_mode = st.session_state.active_nav
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VIEW 1: DASHBOARD
